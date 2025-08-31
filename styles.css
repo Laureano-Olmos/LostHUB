@@ -1,0 +1,52 @@
+.topbar {
+  position: fixed;      /* La pega arriba de la pantalla */
+  top: 0;               /* Alineada arriba */
+  left: 0;
+  width: 100%;          /* Que ocupe todo el ancho */
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end; /* Menú a la derecha */
+  z-index: 1000;        /* Que quede encima del resto */
+}
+
+.topbar a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.topbar a:hover {
+  text-decoration: underline;
+}
+
+.start {
+background-image: url('/img/hub.webp');
+background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+background-repeat: no-repeat; /* Evita que la imagen se repita */
+padding: 50px; /* Añade espacio para que el texto no esté pegado al borde */
+color: #ffffff; /* Color del texto para que sea visible sobre la imagen */
+text-align: center; /* Centra el texto */
+}
+
+/* Para darle más dramatismo al shake de la página */
+.shake-impact {
+  animation: impactShake 0.6s ease;
+}
+
+@keyframes impactShake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-10px, 0); }
+  40% { transform: translate(10px, 0); }
+  60% { transform: translate(-6px, 0); }
+  80% { transform: translate(6px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+
+/* Para evitar que tape el contenido */
+body {
+  margin: 0; /* para que no quede espacio raro */
+  padding-top: 65px; /* suponiendo que la barra mide 50px de alto */
+}

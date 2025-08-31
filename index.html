@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Lost - Nix - Laureano Olmos" />
+    <meta name="description" content="Página principal del blog de Lost" />
+    <meta
+      name="keywords"
+      content="Lost Hub, Blog, Desarrollo, Reseñas, Escritos"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>Lost Hub | Inicio</title>
+  </head>
+  <body>
+    <script>
+      AOS.init();
+      document.addEventListener("DOMContentLoaded", () => {
+        const title = document.getElementById("lost-hub");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                // Quitar zoomIn y ejecutar hinge
+                title.classList.remove("animate__zoomIn");
+                title.classList.add("animate__animated", "animate__hinge");
+
+                // Cuando termine hinge → sacudir la página
+                title.addEventListener(
+                  "animationend",
+                  () => {
+                    document.body.classList.add("shake-impact");
+
+                    // quitar la clase después del shake para que no quede fija
+                    setTimeout(() => {
+                      document.body.classList.remove("shake-impact");
+                    }, 600);
+                  },
+                  { once: true }
+                );
+
+                // Para que no vuelva nunca más
+                observer.unobserve(title);
+              }
+            });
+          },
+          { threshold: 0 }
+        );
+
+        observer.observe(title);
+      });
+    </script>
+
+    <!-- Header fijado-->
+    <header class="topbar">
+      <nav>
+        <ul>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Register</a></li>
+          <!-- Si está logueado -->
+          <!-- <li><a href="#">Bienvenido, Nix</a></li> -->
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Encabezado. animate__hinge salida h1 y animate__fadeOutUp salida img-->
+    <header class="start">
+      <h1 id="lost-hub" data-aos="zoom-in">LOST HUB</h1>
+      <img
+        data-aos="fade-up"
+        src="img/lost.png"
+        alt=""
+        class="animate__animated animate__slideInUp"
+      />
+      <p data-aos="fade-left">
+        Bienvenido internauta a Lost Hub. El lobby del Blog de Lost.
+      </p>
+      <p data-aos="fade-right">
+        Puedes acceder rápidamente a la categoría pública que más te interese
+      </p>
+
+      <!-- Menú principal -->
+      <nav>
+        <ul>
+          <li><a href="#resenas">Reseñas</a></li>
+          <li><a href="#escritos">Escritos</a></li>
+          <li><a href="#desarrollo">Desarrollo</a></li>
+          <li><a href="#pozo">El Pozo</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+      <!-- Secciones del Blog -->
+      <section id="secciones">
+        <h2>Secciones del Blog</h2>
+        <ul>
+          <li id="resenas">
+            <a href="reviews/index.html">Reseñas:</a> Blog enfocado a reseñas
+            personales que salieron, o no, en el Podcast "Lost Signal"
+          </li>
+          <li id="escritos">
+            <a href="writings/index.html">Escritos:</a> Blog enfocado en
+            compartir escritos del estilo historias. Ya sean novelas o micro
+            relatos
+          </li>
+          <li id="desarrollo">
+            <a href="development/index.html">Desarrollo:</a> Blog enfocado en mi
+            aprendizaje en cuanto a desarrollo computacional. Desde Frontend
+            hasta Backend, desde Redes hasta Ciberseguridad y desde Bash hasta
+            Python, etc.
+          </li>
+          <li id="pozo">
+            <a href="dump/index.html">El Pozo:</a> Blog descentralizado,
+            básicamente un pozo donde tiro cosas prácticamente aleatorias
+          </li>
+        </ul>
+      </section>
+
+      <!-- Sobre mí -->
+      <section id="sobre-mi">
+        <h2>Sobre Mi</h2>
+        <p>
+          Si alguna vez te preguntaste quién es la persona detrás del Podcast
+          Lost Signal, o del canal de Twitch Nixcoke, estás en el lugar
+          correcto.
+        </p>
+        <p>
+          Lost, o Nix, es un joven que se autodefine como "Aprendiz de todo,
+          maestro de nada". Le gusta mucho aprender de temas variados y hablar
+          de prácticamente cualquier cosa.<br />
+          La persona tras la pantalla es Olmos Laureano, un argentino nacido el
+          28 de Octubre de 2002 en la ciudad de Rosario, Santa Fe. <br />
+          Tiene tanta creatividad que no es capaz de terminar proyectos que no
+          tengan fecha definida. Porque en el proceso de hacer algo, surgen
+          conceptos nuevos que fomentan crear algo distinto al proyecto en
+          curso.<br />
+          Y es justamente eso lo que nos deja donde estamos ahora: en un blog
+          multipropósito.
+        </p>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>© 2025 Lost Hub. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>

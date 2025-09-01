@@ -37,7 +37,8 @@
                   "animationend",
                   () => {
                     document.body.classList.add("shake-impact");
-
+                    calavera.src = "img/LostAlt.png";
+                    sad.src = "img/tsad.png";
                     // quitar la clase después del shake para que no quede fija
                     setTimeout(() => {
                       document.body.classList.remove("shake-impact");
@@ -73,29 +74,23 @@
     <!-- Encabezado. animate__hinge salida h1 y animate__fadeOutUp salida img-->
     <header class="start">
       <h1 id="lost-hub" data-aos="zoom-in">LOST HUB</h1>
-      <img
-        data-aos="fade-up"
-        src="img/lost.png"
-        alt=""
-        class="animate__animated animate__slideInUp"
-      />
+      <div>
+        <img id="sad" src="" alt="" />
+        <img
+          id="calavera"
+          data-aos="fade-up"
+          src="img/lost.png"
+          alt=""
+          class="animate__animated animate__slideInUp"
+        />
+        
+      </div>
       <p data-aos="fade-left">
         Bienvenido internauta a Lost Hub. El lobby del Blog de Lost.
       </p>
       <p data-aos="fade-right">
         Puedes acceder rápidamente a la categoría pública que más te interese
       </p>
-
-      <!-- Menú principal -->
-      <nav>
-        <ul>
-          <li><a href="#resenas">Reseñas</a></li>
-          <li><a href="#escritos">Escritos</a></li>
-          <li><a href="#desarrollo">Desarrollo</a></li>
-          <li><a href="#pozo">El Pozo</a></li>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
-        </ul>
-      </nav>
     </header>
 
     <!-- Contenido principal -->
